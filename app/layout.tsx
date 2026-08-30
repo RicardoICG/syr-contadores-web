@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link"; // Herramienta de Next.js para navegar sin recargar la página
+import Link from "next/link"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Aquí configuramos el SEO global para que Google te encuentre
 export const metadata: Metadata = {
   title: "S&R Contadores | Outsourcing Contable, Tributario y Laboral",
   description: "Blindamos tu empresa contra multas y contingencias en Perú. Contabilidad con tecnología ERP y gestión laboral.",
@@ -20,7 +19,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         
-        {/* BARRA DE NAVEGACIÓN GLOBAL (Menú) */}
+        {/* BARRA DE NAVEGACIÓN GLOBAL */}
         <nav className="bg-slate-950/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             
@@ -38,6 +37,11 @@ export default function RootLayout({
                 Blog y Recursos
               </Link>
               
+              {/* NUEVO ENLACE: Calculadora */}
+              <Link href="/calculadora" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 bg-cyan-950/30 px-3 py-1.5 rounded-lg border border-cyan-900/50">
+                <span>📊</span> Calculadora de Rentabilidad
+              </Link>
+              
               {/* Botón de Acceso al Portal */}
               <Link href="/login" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold rounded-lg border border-slate-700 transition-all flex items-center gap-2">
                 <span>🔒</span> Acceso VIP
@@ -47,7 +51,7 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* CONTENIDO DINÁMICO (Aquí se cargan tus demás páginas) */}
+        {/* CONTENIDO DINÁMICO */}
         {children}
         
       </body>
