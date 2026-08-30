@@ -4,40 +4,54 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans selection:bg-cyan-500 selection:text-white">
       
-      {/* SECCIÓN HERO (CABECERA PRINCIPAL) */}
-      <section className="relative pt-20 pb-24 md:pt-32 md:pb-32 px-6 overflow-hidden">
-        {/* Efecto de luz de fondo */}
+      {/* SECCIÓN HERO (CON IMAGEN PRINCIPAL) */}
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-32 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
         
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-cyan-400 text-xs md:text-sm font-semibold mb-8 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            Especialistas en normativa SUNAT y laboral
+        <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Columna Izquierda: Texto */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-cyan-400 text-xs md:text-sm font-semibold mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              Especialistas en normativa SUNAT
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+              Contabilidad para <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                empresas que buscan crecer.
+              </span>
+            </h1>
+            
+            <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
+              Blindamos tu empresa contra multas y contingencias. Nos encargamos del Outsourcing Contable, Tributario, Laboral y Gestión de Costos para que tú te enfoques en operar tu negocio.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/calculadora" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/30 text-center">
+                Calculadora de Rentabilidad
+              </Link>
+              <Link href="/login" className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl border border-slate-700 transition-all text-center">
+                Portal VIP
+              </Link>
+            </div>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-            Contabilidad inteligente para <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              empresas que buscan crecer.
-            </span>
-          </h1>
-          
-          <p className="text-base md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed px-4">
-            Blindamos tu empresa contra multas y contingencias. Nos encargamos del Outsourcing Contable, Tributario, Laboral y Gestión de Costos para que tú te enfoques en operar y escalar tu negocio con total tranquilidad.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
-            <Link href="/calculadora" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] text-center">
-              Probar Calculadora de Rentabilidad
-            </Link>
-            <Link href="/login" className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl border border-slate-700 transition-all text-center">
-              Acceso Portal Clientes
-            </Link>
+
+          {/* Columna Derecha: Imagen Principal */}
+          <div className="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 group">
+            <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" 
+              alt="Consultoría Contable" 
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
           </div>
+
         </div>
       </section>
 
-      {/* BARRA DE CONFIANZA / INDICADORES */}
+      {/* BARRA DE CONFIANZA */}
       <section className="border-y border-slate-800 bg-slate-950/50">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-800">
@@ -61,7 +75,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECCIÓN DE SERVICIOS ESTRATÉGICOS */}
+      {/* SECCIÓN DE SERVICIOS CON IMÁGENES Y ENLACES ACTIVOS */}
       <section className="py-20 md:py-28 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -69,39 +83,57 @@ export default function HomePage() {
             <p className="text-slate-400 max-w-2xl mx-auto">Soluciones integrales diseñadas para optimizar tu carga fiscal, proteger a tus colaboradores y maximizar tu rentabilidad operativa.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* Tarjeta 1 */}
-            <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-blue-500/50 transition-colors group">
-              <div className="w-14 h-14 bg-blue-900/50 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                🏛️
+            {/* Servicio 1: Tributario */}
+            <div className="bg-slate-800/40 rounded-3xl border border-slate-700 overflow-hidden hover:border-blue-500/50 transition-all hover:-translate-y-2">
+              <div className="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80" alt="Tributario" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Outsourcing Tributario</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Elaboración de estados financieros, liquidación de impuestos y planeamiento tributario riguroso para pagar lo justo por ley y sin contingencias.
-              </p>
+              <div className="p-8 pt-2">
+                <h3 className="text-xl font-bold mb-3 text-white">Outsourcing Tributario</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Elaboración de estados financieros, liquidación de impuestos y planeamiento tributario riguroso para pagar lo justo por ley.
+                </p>
+                <Link href="/tributario" className="text-blue-400 text-sm font-bold flex items-center gap-1 hover:text-blue-300">
+                  Ver detalles →
+                </Link>
+              </div>
             </div>
 
-            {/* Tarjeta 2 */}
-            <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-cyan-500/50 transition-colors group">
-              <div className="w-14 h-14 bg-cyan-900/50 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                👥
+            {/* Servicio 2: Laboral */}
+            <div className="bg-slate-800/40 rounded-3xl border border-slate-700 overflow-hidden hover:border-cyan-500/50 transition-all hover:-translate-y-2">
+              <div className="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=600&q=80" alt="Laboral" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Gestión Laboral Integral</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Cálculo de nóminas, declaraciones PLAME, AFP, liquidaciones y contratos. Evita demandas y multas con la SUNAFIL y el Ministerio de Trabajo.
-              </p>
+              <div className="p-8 pt-2">
+                <h3 className="text-xl font-bold mb-3 text-white">Gestión Laboral Integral</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Cálculo de nóminas, declaraciones PLAME, AFP, liquidaciones y contratos. Evita demandas y multas con la SUNAFIL.
+                </p>
+                <Link href="/laboral" className="text-cyan-400 text-sm font-bold flex items-center gap-1 hover:text-cyan-300">
+                  Ver detalles →
+                </Link>
+              </div>
             </div>
 
-            {/* Tarjeta 3 */}
-            <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-emerald-500/50 transition-colors group">
-              <div className="w-14 h-14 bg-emerald-900/50 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                📈
+            {/* Servicio 3: Costos */}
+            <div className="bg-slate-800/40 rounded-3xl border border-slate-700 overflow-hidden hover:border-emerald-500/50 transition-all hover:-translate-y-2">
+              <div className="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Costos" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Costos y Presupuestos</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Análisis profundo de la estructura de costos operativos de tu empresa para identificar fugas de capital y proyectar un crecimiento financiero sano.
-              </p>
+              <div className="p-8 pt-2">
+                <h3 className="text-xl font-bold mb-3 text-white">Costos y Presupuestos</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Análisis profundo de la estructura de costos de tu empresa para identificar fugas de capital y proyectar un crecimiento sano.
+                </p>
+                <Link href="/costos" className="text-emerald-400 text-sm font-bold flex items-center gap-1 hover:text-emerald-300">
+                  Ver detalles →
+                </Link>
+              </div>
             </div>
             
           </div>
