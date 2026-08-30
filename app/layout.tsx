@@ -130,8 +130,8 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto pt-8 border-t border-slate-800/50 text-center md:flex md:justify-between md:text-left text-xs text-slate-600">
             <p>© {new Date().getFullYear()} S&R Contadores. Todos los derechos reservados.</p>
             <div className="mt-2 md:mt-0 space-x-4">
-              <Link href="/" className="hover:text-slate-400">Términos y Condiciones</Link>
-              <Link href="/" className="hover:text-slate-400">Políticas de Privacidad</Link>
+              <Link href="/terminos" className="hover:text-cyan-400 transition-colors">Términos y Condiciones</Link>
+              <Link href="/privacidad" className="hover:text-cyan-400 transition-colors">Políticas de Privacidad</Link>
             </div>
           </div>
         </footer>
