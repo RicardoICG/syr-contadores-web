@@ -11,6 +11,16 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'autor',
+      title: 'Autor del Artículo',
+      description: '¿Quién escribió este artículo?',
+      type: 'string',
+      options: {
+        list: ['Ricardo Cervantes', 'Sheila'],
+        layout: 'radio'
+      }
+    }),
+    defineField({
       name: 'slug',
       title: 'URL del Artículo (Slug)',
       description: 'Haz clic en "Generate" para crear la URL automáticamente basada en el título.',
@@ -32,7 +42,14 @@ export default defineType({
       name: 'contenido',
       title: 'Contenido del Artículo',
       type: 'array',
-      of: [{ type: 'block' }]
+      of: [
+        { type: 'block' },
+        { 
+          type: 'image',
+          title: 'Insertar Cuadro/Tabla (Imagen)',
+          options: { hotspot: true }
+        }
+      ]
     }),
   ],
-})
+})  
