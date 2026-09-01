@@ -2,7 +2,9 @@ import { client } from '@/sanity/lib/client'
 import { PortableText } from 'next-sanity'
 import Link from 'next/link'
 
-// Búsqueda del artículo específico y expansión de imágenes internas
+export const revalidate = 0; // Apagamos el caché
+
+// Búsqueda del artículo específico
 async function getArticulo(slug: string) {
   const query = `*[_type == "articulo" && slug.current == $slug][0]{
     titulo,
@@ -13,7 +15,10 @@ async function getArticulo(slug: string) {
       ...,
       _type == "image" => {
         ...,
-        "url": asset->url
+        asset->{
+          _id,
+          url
+        }
       }
     }
   }`
@@ -33,16 +38,21 @@ const componentesPortables = {
     number: ({ children }: any) => <ol className="list-decimal pl-6 mb-6 text-slate-300 space-y-2 text-lg">{children}</ol>,
   },
   types: {
-    image: ({ value }: any) => (
-      <div className="my-10 flex justify-center">
-        <img src={value.url} alt="Cuadro o tabla adjunta" className="rounded-lg shadow-xl max-w-full border border-slate-700" />
-      </div>
-    )
+    image: ({ value }: any) => {
+      if (!value?.asset?.url) return null;
+      return (
+        <div className="my-10 flex justify-center">
+          <img src={value.asset.url} alt="Imagen adjunta" className="rounded-lg shadow-xl max-w-full border border-slate-700" />
+        </div>
+      )
+    }
   }
 }
 
-export default async function ArticuloPage({ params }: { params: { slug: string } }) {
-  const articulo = await getArticulo(params.slug)
+// AQUÍ ESTÁ LA SOLUCIÓN: Agregamos Promise y await a los params
+export default async function ArticuloPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; // Obligamos a Next.js a esperar la URL
+  const articulo = await getArticulo(slug);
 
   if (!articulo) {
     return (
