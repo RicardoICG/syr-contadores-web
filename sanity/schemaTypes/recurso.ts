@@ -12,6 +12,16 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'autor',
+      title: 'Autor del Documento',
+      description: '¿Quién de los socios elaboró este recurso?',
+      type: 'string',
+      options: {
+        list: ['Ricardo Cervantes', 'Sheila'], // Lista de opciones rápidas
+        layout: 'radio' // Se mostrará como botones para elegir rápido
+      }
+    }),
+    defineField({
       name: 'descripcion',
       title: 'Breve Descripción',
       description: 'Aparecerá en la tarjeta de la página web (Máximo 200 caracteres).',
@@ -30,7 +40,7 @@ export default defineType({
       description: 'Sube aquí tu Excel, Word o PDF.',
       type: 'file',
       options: {
-        storeOriginalFilename: true, // Esto mantiene el nombre original de tu archivo
+        storeOriginalFilename: true,
       },
       validation: (Rule) => Rule.required(),
     }),

@@ -1,87 +1,69 @@
-import Link from "next/link";
+import { client } from '@/sanity/lib/client'
 
-export default function RecursosPage() {
+// Esta función busca los archivos en tu base de datos de Sanity
+async function getRecursos() {
+  const query = `*[_type == "recurso"]{
+    _id,
+    titulo,
+    autor,
+    descripcion,
+    icono,
+    "archivoUrl": archivo.asset->url,
+    "nombreOriginal": archivo.asset->originalFilename
+  }`
+  return client.fetch(query)
+}
+
+export default async function RecursosPage() {
+  const recursos = await getRecursos()
+
   return (
-    <div className="min-h-screen bg-slate-900 text-white py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        
-        <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-cyan-900/50 text-cyan-400 text-xs font-bold rounded-full mb-4">Descargas Gratuitas</span>
-          <h1 className="text-4xl md:text-5xl font-black mb-6">Herramientas y Plantillas</h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Optimiza la gestión de tu empresa con nuestras macros de Excel y guías tributarias en PDF. Material exclusivo desarrollado por S&R Contadores.
-          </p>
+    <main className="max-w-6xl mx-auto p-8 pt-20">
+      <h1 className="text-4xl font-bold text-center mb-4">Recursos y Descargas</h1>
+      <p className="text-center text-slate-400 mb-12">
+        Descarga plantillas, macros y documentos útiles diseñados para optimizar la gestión de tu empresa.
+      </p>
+
+      {recursos.length === 0 ? (
+        <p className="text-center text-slate-500">Pronto subiremos nuevos recursos. ¡Mantente atento!</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recursos.map((recurso: any) => {
+            const linkDescarga = recurso.archivoUrl 
+              ? `${recurso.archivoUrl}?dl=${recurso.nombreOriginal || 'SyR-Documento.pdf'}`
+              : '#';
+
+            return (
+              <div key={recurso._id} className="border border-slate-800 bg-slate-900/50 p-6 rounded-lg hover:border-cyan-500 transition-colors flex flex-col h-full">
+                <div className="text-4xl mb-4">{recurso.icono || '📄'}</div>
+                <h2 className="text-xl font-bold mb-1 text-white">{recurso.titulo}</h2>
+                
+                {/* Aquí mostramos el nombre del autor */}
+                {recurso.autor && (
+                  <p className="text-sm text-cyan-400 font-semibold mb-3">
+                    Por: {recurso.autor}
+                  </p>
+                )}
+
+                <p className="text-slate-400 mb-6 flex-grow">{recurso.descripcion}</p>
+                
+                {recurso.archivoUrl ? (
+                  <a 
+                    href={linkDescarga} 
+                    className="block text-center bg-cyan-600 text-white px-4 py-2 rounded font-bold hover:bg-cyan-500 transition-colors"
+                  >
+                    Descargar Archivo
+                  </a>
+                ) : (
+                  <span className="block text-center bg-slate-800 text-slate-400 px-4 py-2 rounded cursor-not-allowed">
+                    Archivo no disponible
+                  </span>
+                )}
+              </div>
+            )
+          })}
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          {/* Tarjeta de Descarga 1: MACRO EXCEL */}
-          <div className="bg-slate-800/40 rounded-3xl border border-slate-700 p-8 hover:border-green-500/50 transition-all group flex flex-col justify-between">
-            <div>
-              <div className="w-14 h-14 bg-green-900/30 rounded-2xl flex items-center justify-center text-3xl mb-6">
-                📊
-              </div>
-              <h2 className="text-xl font-bold mb-3 text-white">Macro Simulador de Planillas MYPE</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Plantilla en Excel automatizada para calcular costos laborales, EsSalud, gratificaciones y vacaciones de forma rápida.
-              </p>
-            </div>
-            
-            {/* NOTA PARA RICARDO: Aquí debes poner el nombre exacto de tu archivo después de /descargas/ */}
-            <a 
-              href="/descargas/macro-planillas.xlsm" 
-              download
-              className="w-full block text-center px-6 py-3 bg-green-700/20 text-green-400 border border-green-700/50 hover:bg-green-600 hover:text-white font-bold rounded-xl transition-all"
-            >
-              ↓ Descargar Archivo Excel
-            </a>
-          </div>
-
-          {/* Tarjeta de Descarga 2: GUÍA PDF */}
-          <div className="bg-slate-800/40 rounded-3xl border border-slate-700 p-8 hover:border-red-500/50 transition-all group flex flex-col justify-between">
-            <div>
-              <div className="w-14 h-14 bg-red-900/30 rounded-2xl flex items-center justify-center text-3xl mb-6">
-                📄
-              </div>
-              <h2 className="text-xl font-bold mb-3 text-white">Guía: Cómo afrontar una fiscalización</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Manual en PDF con el paso a paso documentado para responder esquelas de SUNAT sin caer en multas ni infracciones.
-              </p>
-            </div>
-            
-            {/* NOTA PARA RICARDO: Aquí debes poner el nombre exacto de tu archivo PDF */}
-            <a 
-              href="/descargas/guia-sunat.pdf" 
-              download
-              className="w-full block text-center px-6 py-3 bg-red-700/20 text-red-400 border border-red-700/50 hover:bg-red-600 hover:text-white font-bold rounded-xl transition-all"
-            >
-              ↓ Descargar Guía PDF
-            </a>
-          </div>
-
-          {/* Tarjeta de Descarga 3: FORMATO WORD/EXCEL */}
-          <div className="bg-slate-800/40 rounded-3xl border border-slate-700 p-8 hover:border-blue-500/50 transition-all group flex flex-col justify-between">
-            <div>
-              <div className="w-14 h-14 bg-blue-900/30 rounded-2xl flex items-center justify-center text-3xl mb-6">
-                📝
-              </div>
-              <h2 className="text-xl font-bold mb-3 text-white">Modelos de Contratos Laborales</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Formatos pre-aprobados para contratos a plazo fijo e indeterminado, adaptados a la normativa peruana actual.
-              </p>
-            </div>
-            
-            <a 
-              href="/descargas/modelos-contratos.zip" 
-              download
-              className="w-full block text-center px-6 py-3 bg-blue-700/20 text-blue-400 border border-blue-700/50 hover:bg-blue-600 hover:text-white font-bold rounded-xl transition-all"
-            >
-              ↓ Descargar Formatos
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  );
+      )}
+    </main>
+  )
 }
