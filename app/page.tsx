@@ -139,6 +139,59 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* INICIO DE LA SECCIÓN DE SOCIOS FUNDADORES */}
+      <section className="py-24 relative overflow-hidden bg-slate-950 border-t border-slate-900">
+        {/* Decoración de fondo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Dirigidos por talento joven y <span className="text-cyan-400">tecnología de punta</span>
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              S&R Contadores nace con la visión de modernizar la contabilidad en el Perú. Con más de 7 años de experiencia práctica combinada, unimos el rigor del análisis financiero con la innovación tecnológica para ofrecer a tu empresa un servicio ágil, transparente y libre de errores manuales.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            
+            {/* Tarjeta de Ricardo */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
+              <div className="w-32 h-32 shrink-0 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center overflow-hidden relative group-hover:border-cyan-500 transition-colors">
+                {/* NOTA PARA RICARDO: Cuando tengas tu foto, borra el <span> de abajo y descomenta la etiqueta <img> */}
+                <span className="text-4xl text-cyan-400 font-bold tracking-widest">RC</span>
+                {/* <img src="/foto-ricardo.jpg" alt="Ricardo Cervantes" className="w-full h-full object-cover" /> */}
+              </div>
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl font-bold text-white mb-1">Ricardo Cervantes G.</h3>
+                <p className="text-cyan-400 font-semibold text-sm mb-4">Socio Fundador | Especialista Tributario</p>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Contador Público Colegiado con sólida formación en Ingeniería de Sistemas. Especialista en estructuración de costos, presupuestos y análisis de datos financieros mediante plataformas avanzadas (Power BI, ecosistemas nube y ERPs como SAP). Su enfoque es blindar fiscalmente a la empresa mientras escala su rentabilidad operativa.
+                </p>
+              </div>
+            </div>
+
+            {/* Tarjeta de Sheila */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
+              <div className="w-32 h-32 shrink-0 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center overflow-hidden relative group-hover:border-blue-500 transition-colors">
+                {/* NOTA PARA RICARDO: Cuando tengas la foto de Sheila, borra el <span> de abajo y descomenta la etiqueta <img> */}
+                <span className="text-4xl text-blue-400 font-bold tracking-widest">SP</span>
+                {/* <img src="/foto-sheila.jpg" alt="Sheila Puchoc" className="w-full h-full object-cover" /> */}
+              </div>
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl font-bold text-white mb-1">Sheila Puchoc T.</h3>
+                <p className="text-blue-400 font-semibold text-sm mb-4">Socia Fundadora | Especialista Laboral</p>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Experta en el marco normativo contable, derecho laboral y gestión integral de planillas. Se encarga de la dirección operativa y el cumplimiento estricto ante SUNAT y MTPE, garantizando que el capital humano y las obligaciones legales de tu empresa operen en un entorno de orden impecable y cero contingencias.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      {/* FIN DE LA SECCIÓN DE SOCIOS FUNDADORES */}
 
     </div>
   );
