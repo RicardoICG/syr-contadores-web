@@ -26,12 +26,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Tarjeta Visual del Hero */}
-        <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
-          <div className="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="relative z-10 flex flex-col items-center justify-center text-center py-12">
-            <div className="text-6xl mb-4">📈💼</div>
-            <h3 className="text-xl font-bold text-white mb-2">Tranquilidad Financiera</h3>
+        {/* Tarjeta Visual del Hero (CON IMAGEN EXTERNA AUTOMÁTICA) */}
+        <div className="bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl relative overflow-hidden group">
+          <div className="relative h-64 w-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" 
+              alt="Tranquilidad Financiera" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+          </div>
+          
+          <div className="relative z-10 flex flex-col items-center justify-center text-center pb-10 px-8 -mt-8">
+            <h3 className="text-2xl font-bold text-white mb-3 shadow-sm">Tranquilidad Financiera</h3>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
               Decisiones basadas en datos reales. Deja la carga operativa y tributaria en manos de expertos.
             </p>
@@ -39,52 +46,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. SECCIÓN DE SERVICIOS PRINCIPALES */}
+      {/* 2. SECCIÓN DE SERVICIOS PRINCIPALES (CON IMÁGENES EXTERNAS) */}
       <section className="max-w-6xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nuestras Soluciones Corporativas</h2>
           <p className="text-slate-400">Diseñadas a la medida para mantener tu negocio en orden y libre de riesgos.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="text-3xl mb-4 bg-slate-800 w-12 h-12 flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform">📋</div>
-              <h3 className="text-xl font-bold text-white mb-3">Outsourcing Tributario</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Liquidación de impuestos, declaraciones mensuales y planeamiento fiscal estratégico para optimizar la carga tributaria de tu empresa.
-              </p>
+          {/* Tarjeta 1: Tributario */}
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col group overflow-hidden shadow-lg">
+            <div className="relative w-full h-48 overflow-hidden border-b border-slate-800">
+              <img 
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" 
+                alt="Outsourcing Tributario" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
             </div>
-            <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
-              Cotizar servicio →
-            </Link>
+            <div className="p-8 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">Outsourcing Tributario</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                  Liquidación de impuestos, declaraciones mensuales y planeamiento fiscal estratégico para optimizar la carga tributaria de tu empresa.
+                </p>
+              </div>
+              <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
+                Cotizar servicio →
+              </Link>
+            </div>
           </div>
 
-          <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="text-3xl mb-4 bg-slate-800 w-12 h-12 flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform">👥</div>
-              <h3 className="text-xl font-bold text-white mb-3">Gestión Laboral Integral</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Cálculo de planillas, declaraciones PLAME, AFP y contratos acorde al marco normativo vigente y normativas de SUNAFIL.
-              </p>
+          {/* Tarjeta 2: Laboral */}
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col group overflow-hidden shadow-lg">
+            <div className="relative w-full h-48 overflow-hidden border-b border-slate-800">
+              <img 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" 
+                alt="Gestión Laboral Integral" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
             </div>
-            <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
-              Cotizar servicio →
-            </Link>
+            <div className="p-8 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">Gestión Laboral Integral</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                  Cálculo de planillas, declaraciones PLAME, AFP y contratos acorde al marco normativo vigente y normativas de SUNAFIL.
+                </p>
+              </div>
+              <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
+                Cotizar servicio →
+              </Link>
+            </div>
           </div>
 
-          <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col justify-between group">
-            <div>
-              <div className="text-3xl mb-4 bg-slate-800 w-12 h-12 flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform">📈</div>
-              <h3 className="text-xl font-bold text-white mb-3">Costos y Presupuestos</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                Análisis profundo de la estructura de costos de tu empresa para identificar fugas de capital y proyectar un crecimiento financiero sano.
-              </p>
+          {/* Tarjeta 3: Costos */}
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col group overflow-hidden shadow-lg">
+            <div className="relative w-full h-48 overflow-hidden border-b border-slate-800">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
+                alt="Costos y Presupuestos" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
             </div>
-            <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
-              Cotizar servicio →
-            </Link>
+            <div className="p-8 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">Costos y Presupuestos</h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                  Análisis profundo de la estructura de costos de tu empresa para identificar fugas de capital y proyectar un crecimiento financiero sano.
+                </p>
+              </div>
+              <Link href="/contacto" className="text-cyan-400 text-sm font-semibold hover:underline flex items-center gap-2">
+                Cotizar servicio →
+              </Link>
+            </div>
           </div>
 
         </div>
@@ -128,7 +162,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             
-            {/* Tarjeta de Ricardo (Ícono Financiero/Tech) */}
+            {/* Tarjeta de Ricardo */}
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
               <div className="w-24 h-24 shrink-0 rounded-2xl bg-cyan-950/50 border-2 border-cyan-900 flex items-center justify-center relative group-hover:border-cyan-500 group-hover:bg-cyan-900/40 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-cyan-400">
@@ -144,7 +178,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Tarjeta de Sheila (Ícono Laboral/Normativo) */}
+            {/* Tarjeta de Sheila */}
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
               <div className="w-24 h-24 shrink-0 rounded-2xl bg-blue-950/50 border-2 border-blue-900 flex items-center justify-center relative group-hover:border-blue-500 group-hover:bg-blue-900/40 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-blue-400">
