@@ -16,7 +16,6 @@ export default function Home() {
           <p className="text-slate-400 text-lg mb-8 leading-relaxed">
             Blindamos tu empresa contra multas y contingencias. Nos encargamos del Outsourcing Contable, Tributario, Laboral y Gestión de Costos para que te enfoques en operar tu negocio.
           </p>
-          {/* NUEVO LLAMADO A LA ACCIÓN ENFOCADO EN VENTAS */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Link 
               href="/contacto" 
@@ -113,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE SOCIOS FUNDADORES */}
+      {/* 4. SECCIÓN DE SOCIOS FUNDADORES (CON ÍCONOS CORPORATIVOS) */}
       <section className="py-24 relative overflow-hidden bg-slate-950 border-t border-slate-900">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/10 rounded-full blur-3xl pointer-events-none"></div>
         
@@ -129,10 +128,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             
-            {/* Tarjeta de Ricardo */}
+            {/* Tarjeta de Ricardo (Ícono Financiero/Tech) */}
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
-              <div className="w-32 h-32 shrink-0 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center overflow-hidden relative group-hover:border-cyan-500 transition-colors">
-                <span className="text-4xl text-cyan-400 font-bold tracking-widest">RC</span>
+              <div className="w-24 h-24 shrink-0 rounded-2xl bg-cyan-950/50 border-2 border-cyan-900 flex items-center justify-center relative group-hover:border-cyan-500 group-hover:bg-cyan-900/40 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-cyan-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                </svg>
               </div>
               <div className="text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-1">Ricardo Cervantes G.</h3>
@@ -143,10 +144,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Tarjeta de Sheila */}
+            {/* Tarjeta de Sheila (Ícono Laboral/Normativo) */}
             <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all group flex flex-col md:flex-row items-center md:items-start gap-6 shadow-xl backdrop-blur-sm">
-              <div className="w-32 h-32 shrink-0 rounded-full bg-slate-800 border-4 border-slate-700 flex items-center justify-center overflow-hidden relative group-hover:border-blue-500 transition-colors">
-                <span className="text-4xl text-blue-400 font-bold tracking-widest">SP</span>
+              <div className="w-24 h-24 shrink-0 rounded-2xl bg-blue-950/50 border-2 border-blue-900 flex items-center justify-center relative group-hover:border-blue-500 group-hover:bg-blue-900/40 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 text-blue-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                </svg>
               </div>
               <div className="text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-1">Sheila Puchoc T.</h3>
