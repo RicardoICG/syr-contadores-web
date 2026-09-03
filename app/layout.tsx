@@ -19,21 +19,40 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased flex flex-col min-h-screen`}>
         
-        {/* BARRA DE NAVEGACIÓN SUPERIOR (LIMPIA) */}
+        {/* BARRA DE NAVEGACIÓN SUPERIOR RESPONSIVA */}
         <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
           <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
             
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group relative z-10">
               <span className="text-2xl font-black tracking-tighter text-white group-hover:text-cyan-400 transition-colors">
                 S&R <span className="text-cyan-600">Contadores</span>
               </span>
             </Link>
 
+            {/* TRUCO CSS PARA MENÚ MÓVIL (Mantiene el archivo del lado del servidor) */}
+            <input type="checkbox" id="mobile-menu" className="hidden peer" />
+            
+            {/* Ícono de Hamburguesa (Solo visible en móviles) */}
+            <label htmlFor="mobile-menu" className="md:hidden cursor-pointer text-slate-300 hover:text-white p-2 relative z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-7 h-7">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </label>
+
+            {/* Menú Desktop (Oculto en móviles) */}
             <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
               <Link href="/" className="text-slate-300 hover:text-cyan-400 transition-colors">Inicio</Link>
               <Link href="/blog" className="text-slate-300 hover:text-cyan-400 transition-colors">Blog</Link>
               <Link href="/recursos" className="text-slate-300 hover:text-cyan-400 transition-colors">Recursos</Link>
-              <Link href="/contacto" className="text-slate-300 hover:text-cyan-400 transition-colors">Contacto</Link>
+              <Link href="/contacto" className="text-sm font-bold text-cyan-400 border border-cyan-800 hover:bg-cyan-900/30 px-5 py-2 rounded-xl transition-all">Contacto</Link>
+            </nav>
+
+            {/* Menú Móvil Desplegable (Visible al tocar el ícono de hamburguesa) */}
+            <nav className="absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 hidden peer-checked:flex flex-col items-center py-6 gap-6 md:hidden shadow-2xl z-40">
+              <Link href="/" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-lg">Inicio</Link>
+              <Link href="/blog" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-lg">Blog</Link>
+              <Link href="/recursos" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-lg">Recursos</Link>
+              <Link href="/contacto" className="text-cyan-400 font-bold border border-cyan-800 px-8 py-3 rounded-xl transition-all mt-2">Contacto</Link>
             </nav>
 
           </div>
@@ -44,7 +63,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* PIE DE PÁGINA PROFESIONAL (RESTAURADO EXACTAMENTE COMO TU ORIGINAL) */}
+        {/* PIE DE PÁGINA PROFESIONAL (INTACTO) */}
         <footer className="bg-[#0b1120] border-t border-slate-800 pt-16 pb-8">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -130,9 +149,9 @@ export default function RootLayout({
           </div>
         </footer>
 
-        {/* BOTÓN FLOTANTE DE WHATSAPP (RESTAURADO EXACTAMENTE IGUAL) */}
+        {/* BOTÓN FLOTANTE DE WHATSAPP (CORREGIDO CON MENSAJE PREDEFINIDO) */}
         <a 
-          href="https://wa.me/51974684397" 
+          href="https://wa.me/51974684397?text=Hola%2C%20S%26R%20Contadores.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios%20contables%20y%20tributarios." 
           target="_blank" 
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebd5b] text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center justify-center group"
